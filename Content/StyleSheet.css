@@ -1,0 +1,150 @@
+﻿html{min-width: 300px; min-height:300px}
+
+
+body { 
+    /*width: 960px;*/
+    /*  background-position: center;
+    font-family: 'Times New Roman', Times, serif; */
+    
+     background: url("/Images/living-room-compressor.jpg") no-repeat center scroll;
+     background-size: cover;  
+     min-height:100%;
+     }
+
+/* - try diiferent color contrast on website
+
+    - MAKE SURE TO USE !IMPORTANT WHEN CHANGING STUFF
+    - Be CAREFUL OF FLOAT PROPERTY
+    - Things don't centre the way you want as they might not be block level elements!
+    */
+
+h1 {
+    /*color: rgba(30, 30, 30, 0.9)*/; /*Colour of text*/
+    text-shadow: -1.5px 1.1px 0.75px rgba(0,0,0,0.5); /* For transparent shadow use rgba(0,0,0,0.1-0.3) */
+    font-weight: 600 !important;
+    color: darkgreen !important;
+    font-size: 32px;
+    text-align: center;
+    padding: 5px;
+    margin: 10px 5px;
+    }
+
+p#mainText {
+    text-shadow: -0.75px 0.6px 0.25px rgba(0,0,0,0.5);
+    font-weight: 400 !important;
+    font-size: 26px;
+    color: darkolivegreen !important;
+    text-align: center;
+}
+
+.instructionsText {
+    
+}
+
+.Labels {
+    
+}
+
+div#middleDiv {  /*p351*/
+    color:white;
+    font-family: ;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px 20px;
+    text-shadow: -0.8px 0.55px 0.25px rgba(0,0,0,0.8);
+   /* border: 1px solid rgba(255,255,255,0.1);*/
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    box-shadow: 0px 4px 12px 6px rgba(0,0,0,0.6);
+    background-color: dimgray;
+    opacity: 0.9;
+    line-height: 1.4285em;
+}
+
+.DropDownList { 
+    cursor: pointer;
+    color: white !important;
+    background-color: gray !important;
+    font-weight: 600 !important;
+    }
+
+.TextBox { 
+    cursor: text; 
+    color: white !important;
+    background-color: gray !important;
+    font-weight: 600 !important;
+}
+
+.DropDownList:hover, .TextBox:hover {
+    background-color: darkslategray !important;
+}
+
+.DropDownList:focus, .TextBox:focus {
+    background-color: darkslategray !important;
+}
+
+::-webkit-input-placeholder { color: ghostwhite !important;}
+::-moz-placeholder {color: ghostwhite !important; }
+:-ms-input-placeholder { /* IE 10+ */ color: ghostwhite !important;}
+
+
+span { float: left; }
+
+.RfValidator, .RangeValidator{ 
+   /* Add borders using btstrap class in css
+   */
+    font-size: 12px;
+    opacity: 1 !important;
+    color: #F26D21 !important;
+    background-color: #093145;  /*rgba(210, 47, 45, 0.8); Change acoordingly*/
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin: 18px;
+   }
+
+
+div.buttonDisplayRentDiv {
+    text-align: center; 
+}
+
+.ButtonDisplayRent { /*p303, 342-3,349*/
+    color: white !important;
+    font-weight: 700 !important;
+    background-color: darkslategray !important;
+    opacity: 1 !important;
+   /* -moz-border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;*/
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.9);
+    }
+
+.ButtonDisplayRent:hover{
+    cursor: pointer !important;
+    color: #EBC944 !important;
+    background-color: #0C374D !important;
+    
+    /*box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.8);*/
+    } 
+
+div.displayRentLabelDiv {
+    text-align: center; 
+}
+
+.DisplayRentLabel {
+    display: block; /*Label is not a block element by default but button is & so it centres!! */
+    border: 0.5px solid skyblue !important;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #FFFFFF;
+    background-color: gray;
+    margin: 5px;
+    padding: 6px 8px;
+    text-align: center;
+    font-size: 18px;
+}
+
+footer { 
+    font-size: 10px;
+    font-weight: 400;
+    color: darkgreen;
+    text-align: center;
+}
