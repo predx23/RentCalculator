@@ -22,8 +22,7 @@ public partial class _Default : System.Web.UI.Page
             List<string> list = new List<string>()
          {  
             boroughsArray1[0,0], boroughsArray1[1,0], boroughsArray1[2,0], boroughsArray1[3,0], boroughsArray1[4,0], boroughsArray1[5,0], boroughsArray1[6,0], boroughsArray1[7,0], boroughsArray1[8,0], boroughsArray1[9,0], boroughsArray1[10,0], boroughsArray1[11,0], boroughsArray1[12,0], boroughsArray1[13,0], boroughsArray1[14,0], boroughsArray1[15,0], boroughsArray1[16,0], boroughsArray1[17,0], boroughsArray1[18,0], boroughsArray1[19,0], boroughsArray1[20,0], boroughsArray1[21,0], boroughsArray1[22,0], boroughsArray1[23,0], boroughsArray1[24,0], boroughsArray1[25,0], boroughsArray1[26,0], boroughsArray1[27,0], boroughsArray1[28,0], boroughsArray1[29,0], boroughsArray1[30,0], boroughsArray1[31,0],
-         }; //boroughsArray1[0-2,0]=VH, boroughsArray1[3-7,0]=H, boroughsArray1[8-17,0]=M, boroughsArray1[18-31,0]=L
-
+         }; 
 
             //The following method is used to display the first column from boroughsArray1 into DropDownList1.
             list.Sort();
@@ -37,14 +36,11 @@ public partial class _Default : System.Web.UI.Page
 
     protected void ButtonDisplayRent_Click(object sender, EventArgs e)
     {
-        //string priceCategory = "";
         double rentC = 0d; //rentC is intermediate rent after taking into account the borough in which the house is situated & no. of bedrooms it contains.
-        //double rentB = 0d; //rentB is intermediate rent after taking into accountthe no. of bedrooms it contains.
         double rentD = 0d; //rentD is intermediate rent after taking into account the distance + above
-        double rentHI = 0d; //rentHI is intermediate rent after taking into account the distance + above
-        double rentF = 0d; //rentF is intermediate rent after taking into account the distance + above
-        //double finalRent = 0d;
-        int bedrooms = 0;
+        double rentHI = 0d; //rentHI is intermediate rent after taking into account the household income + above
+        double rentF = 0d; //rentF is intermediate rent changing depending if user chooses monthly or weekly display
+        int bedrooms = 0; //Initialising value
         bedrooms = Convert.ToInt32(TextBoxBedrooms.Text);
         Double DistTube = 0;
         DistTube = Convert.ToDouble(TextBoxDist.Text);
@@ -56,44 +52,31 @@ public partial class _Default : System.Web.UI.Page
             {
                 if (boroughsArray1[i, 0] == DropDownList1.SelectedValue)
                 { rentC = Convert.ToDouble(boroughsArray1[i, 1]); }   //Array[a, b] -> where a is row no. & b is column no.
-
-                //Debug.Text = "  Rent C = " + rentC;  
             } }
 
         else if (bedrooms == 2)
         { for (int j = 0; j < boroughsArray2.GetLength(0); j++)
             {
                 if (boroughsArray2[j, 0] == DropDownList1.SelectedValue)
-                { rentC = Convert.ToDouble(boroughsArray2[j, 1]); }   //Array[a, b] -> where a is row no. & b is column no.
-
-                //Debug.Text = "  Rent C = " + rentC;
+                { rentC = Convert.ToDouble(boroughsArray2[j, 1]); }   
             } }
 
         else if (bedrooms == 3)
         { for (int k = 0; k < boroughsArray3.GetLength(0); k++)
             {
                 if (boroughsArray3[k, 0] == DropDownList1.SelectedValue)
-                { rentC = Convert.ToDouble(boroughsArray3[k, 1]); }   //Array[a, b] -> where a is row no. & b is column no.
-
-                //Debug.Text = "  Rent C = " + rentC;
+                { rentC = Convert.ToDouble(boroughsArray3[k, 1]); }  
             } }
 
         else if (bedrooms >= 4)
         { for (int l = 0; l < boroughsArray4.GetLength(0); l++)
             {
                 if (boroughsArray4[l, 0] == DropDownList1.SelectedValue)
-                { rentC = Convert.ToDouble(boroughsArray4[l, 1]); }   //Array[a, b] -> where a is row no. & b is column no.
-
-                //Debug.Text = "  Rent C = " + rentC;
+                { rentC = Convert.ToDouble(boroughsArray4[l, 1]); } 
             } }
 
-
-
-
-        //if (TextBoxDist.Text != "")
-        //    {
-                //Double DistTube = 0;
-                //DistTube = Convert.ToDouble(TextBoxDist.Text); 
+        
+        
 
                 if (DistTube >= 0 && DistTube < 0.2)
                 { rentD = 1.15D * rentC; }
@@ -103,10 +86,8 @@ public partial class _Default : System.Web.UI.Page
                 { rentD = 1.05D * rentC; }
                 else
                 { rentD = rentC; }
-            //}
-            // else { rentD = rentB; }
+            
 
-        
 
             if (TextBoxIncome.Text != "")
             {
@@ -133,10 +114,9 @@ public partial class _Default : System.Web.UI.Page
 
 
 
-
-            if (DropDownList3.SelectedValue == "monthly" || DropDownList3.SelectedValue == "weekly")
+            if (DropDownList2.SelectedValue == "monthly" || DropDownList2.SelectedValue == "weekly")
             {
-                switch (DropDownList3.SelectedValue)
+                switch (DropDownList2.SelectedValue)
                 {
                     case "monthly":
                         rentF = rentHI;
@@ -156,92 +136,35 @@ public partial class _Default : System.Web.UI.Page
         var finalRent = String.Format("{0:0.00}", result);
 
 
-        DisplayRentLabel.Text = String.Format("The {4} rent for a {0} bedroom house {1} mile(s) from the tube/train station situated in {2} is: £{3}.", bedrooms, DistTube, DropDownList1.SelectedValue, finalRent, DropDownList3.SelectedValue);
+        DisplayRentLabel.Text = String.Format("The {4} rent for a {0} bedroom house {1} mile(s) from the tube/train station situated in {2} is: £{3}.", bedrooms, DistTube, DropDownList1.SelectedValue, finalRent, DropDownList2.SelectedValue);
         DisplayRentLabel.Visible = true;
         }
 
 
+
+
     protected void TextBoxBedrooms_TextChanged(object sender, EventArgs e)
     {
-        //RequiredFieldValidatorBedrooms.Visible = false;  This doesn't just make it invisible but also disables the validator after this action!!
+        DisplayRentLabel.Visible = false;  //Do this to make DisplayRentLabel invisible when any of the form values are changed.
     }
-
-
+    
     protected void TextBoxDist_TextChanged(object sender, EventArgs e)
     {
-        //RequiredFieldValidatorDistance.Visible = false;
+        DisplayRentLabel.Visible = false;
+    }
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DisplayRentLabel.Visible = false;
+    }
+
+    protected void TextBoxIncome_TextChanged(object sender, EventArgs e)
+    {
+        DisplayRentLabel.Visible = false;
+    }
+
+    protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DisplayRentLabel.Visible = false;
     }
 }
-  
-
-
-
-
-//if (priceCategory == "A") //A=>1730-2040
-//{ rentC = 3000; }
-//else if (priceCategory == "H") //B=>1500-1730
-//{ rentC = 2000; }
-//else if (priceCategory == "M") //C=>1340-1500
-//{ rentC = 1500; }
-//else if (priceCategory == "L") //D=>1200-1340
-//{ rentC = 1000; }
-
-
-//if (TextBoxBedrooms.Text != "")
-//{
-//    //double bedrooms = 0D;
-//    //bedrooms = Convert.ToDouble(TextBoxBedrooms.Text);
-//    //string bedrooms = DropDownList4.SelectedValue;
-
-//    if (bedrooms == 1)
-//    { rentB = rentC; }
-//    else if (bedrooms == 2)
-//    { rentB = rentC + (bedrooms * 500); }
-//    else if (bedrooms > 5)
-//    { rentB = rentC + (5 * 500); }
-//}
-
-
-
-//switch (bedrooms)
-//{
-//    case 1:
-//        rentB = rentC;
-//        break;
-//    case 2:
-//        rentB = 1.27D * rentC; //Ratio of 1.27(& below) chosen according to: two bedroom/one bedroom values from official London Rent data
-//        break;
-//    case 3:
-//        rentB = 1.7D * rentC;
-//        break;
-//    case 4:
-//        rentB = 2.42D * rentC;
-//        break;
-//    default:
-//        rentB = 2.42D * rentC;
-//        break;
-//}
-
-
-//else { LabelErr2.Text = "Required field! Please enter number of bedrooms to proceed."; }
-//No need for else as ASP.NET will not allow user to proceed if TextBoxBedrooms is left empty 
-
-//switch (distFromTube)
-//{
-//    case "0-0.2 miles":
-//        rentD = 1.15D * rentB;
-//        break;
-//    case "0.2-0.5 miles":
-//        rentD = 1.1D * rentB;
-//        break;
-//    case "0.5-1 miles":
-//        rentD = 1.05D * rentB;
-//        break;
-//    case "&gt;1 mile":
-//        rentD = rentB;
-//        break;
-//    default:
-//        rentD = rentB;
-//        break;
-//}
-//Debug.Text = "Where in swtich = " + whereInSwitch + "  Rent CB = " + rentCB + "  Rent D = " + rentD;
