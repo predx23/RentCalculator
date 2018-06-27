@@ -1,9 +1,9 @@
-﻿html{min-width: 300px; min-height:300px}
-
-
-body {  
-     background: url("/Images/living-room-compressor.jpg") no-repeat center scroll;
+﻿body {  
+     background: url("/Images/london_nik-macmillan.jpg") no-repeat center scroll;
      background-size: cover;  
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
      min-height:100%;
      margin: 30px 0px 10px 0px !important;
 }
@@ -11,19 +11,28 @@ body {
 h1 {
     text-shadow: -1.5px 1.1px 0.75px rgba(0,0,0,0.5); /* For transparent shadow use rgba(0,0,0,0.1-0.3) */
     font-weight: 600 !important;
-    color: darkolivegreen !important;
+    color: #f4fc05 !important;
     font-size: 40px;
     text-align: center;
-    padding: 5px;
     margin: 10px 5px;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif!important;
+    background-color: rgba(0, 40, 79, 0.95);
+    padding: 13px 20px 13px 20px;
+    max-width:400px;
+    margin:auto;
 }
 
 p#mainText {
     text-shadow: -0.75px 0.6px 0.25px rgba(0,0,0,0.5);
     font-weight: 400 !important;
     font-size: 26px;
-    color: darkolivegreen !important;
+    color: white !important;
     text-align: center;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif!important;
+    background-color: rgba(0, 40, 79, 0.95);
+    padding: 13px 20px 13px 20px;
+    max-width:750px;
+    margin:auto;
 }
 
 div#middleDiv {
@@ -32,20 +41,20 @@ div#middleDiv {
     font-weight: 600;
     padding: 12px 22px 10px 22px;
     text-shadow: -0.8px 0.55px 0.25px rgba(0,0,0,0.3);
-    -moz-border-radius: 1px;
-    -webkit-border-radius: 1px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
     box-shadow: 0px 0px 35px 6px rgba(0,0,0,0.45);
-    background-color: #93a79c;
-    opacity: 0.94;
-    max-width:750px;
+    background-color: rgba(0, 40, 79, 0.95);
+    opacity: 1;
+    max-width: 750px;
     min-width: 575px;
-    position:center !important;
+    margin:auto;
 }
 
 .DropDownList { 
     cursor: pointer;
     color: white !important;
-    background-color: gray !important;
+    background-color: transparent !important;
     font-size: 16px !important;
     font-weight: 600 !important;
 }
@@ -53,23 +62,23 @@ div#middleDiv {
 .TextBox { 
     cursor: text; 
     color: white !important;
-    background-color: gray !important;
+    background-color: transparent !important;
     font-size: 16px !important;
     font-weight: 600 !important;
     opacity: 1 !important;
 }
 
 .DropDownList:hover, .TextBox:hover {
-    background-color: darkslategray !important;
+    background-color: #4C6883 !important;
 }
 
 .DropDownList:focus, .TextBox:focus {
-    background-color: darkslategray !important;
+    background-color: #4C6883 !important;
 }
 
-::-webkit-input-placeholder { color: ghostwhite !important;}
-::-moz-placeholder {color: ghostwhite !important; }
-:-ms-input-placeholder { /* IE 10+ */ color: ghostwhite !important;}
+::-webkit-input-placeholder { color: rgba(255, 255, 255, 0.75) !important;}
+::-moz-placeholder {color: rgba(255, 255, 255, 0.75) !important; }
+:-ms-input-placeholder { /* IE 10+ */ color: rgba(255, 255, 255, 0.75) !important;}
 
 
 span { 
@@ -83,27 +92,33 @@ span {
     background-color: #093145;
     padding: 5px 12px;
     border-radius: 5px;
-    margin: 2px 0px 2px 20px;
-    
+    margin: 3px 0px 2px 20px!important;
+}
+@media (max-width:768px){
+    .RfValidator, .RangeValidator{
+         margin-left: 0px !important;
+    }
 }
 
 div.buttonDisplayRentDiv {
     text-align: center; 
 }
 
-.ButtonDisplayRent { /*p303, 342-3,349*/
+.ButtonDisplayRent {
     color: white !important;
     font-weight: 700 !important;
-    background-color: darkslategray !important;
+    background-color: transparent !important;
     opacity: 1 !important;
-    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.9);
+    border-radius:0px!important;
+    border: 2px solid white!important;
 }
 
 .ButtonDisplayRent:hover{
     cursor: pointer !important;
-    color: #eaf625 !important;
-    background-color: #0C374D !important;
-    transition: 0.01s;
+    color: yellow !important;
+    background-color: transparent !important;
+    border: 2px solid yellow!important;
+    transition: 0.3s;
 } 
 
 div.displayRentLabelDiv {
@@ -112,11 +127,11 @@ div.displayRentLabelDiv {
 
 .DisplayRentLabel {
     display: block; /*Label is not a block element by default but button is & so it centres!! */
-    border: 0.5px solid skyblue !important;
+    border: 0.5px solid #f4fc05 !important;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    color: #FFFFFF;
-    background-color: gray;
+    color: #f4fc05;
+    background-color: rgba(0, 40, 79, 0.98);
     margin-bottom: 20px;
     padding: 6px 8px;
     text-align: center;
@@ -126,6 +141,7 @@ div.displayRentLabelDiv {
 footer { 
     font-size: 12px;
     font-weight: 400;
-    color: darkgreen;
+    color: white;
     text-align: center;
+    background-color: rgba(0, 40, 79, 0.55);
 }
